@@ -2,4 +2,4 @@
 **Init Date: Dec 1, 2017**
 <h3>STARTED FROM THE BOTTOM NOW, WE'RE HERE</h3>
 Ground station that displays CANSAT telemetry data. Using web technology like HTML, CSS, NodeJS and Electron platform to build the software.
-![alt Inspiring-Mockup-Design](https://github.com/akiet00/CANSATgui/blob/master/Inspiring.jpg)
+![Mockup design](https://github.com/akiet00/CANSATgui/blob/master/Inspiring.jpg)
