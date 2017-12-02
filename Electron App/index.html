@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- PLOTLY library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- BOOTSTRAP library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="team-name">
+      <p>[TEAM Name HERE] TELEMETRY</p>
+    </div>
+
+    <div class="grid">
+      <div id="alt-time" class="plot-area">
+        <!--Altitude vs. time plot goes here -->
+      </div> <!-- END OF ALT-TIME BLOCK-->
+
+      <div class="pressure-time plot-area">
+        <!--Pressure vs. time plot goes here -->
+      </div> <!-- END OF PRESSSURE-TIME BLOCK-->
+
+      <div class="temperature-time plot-area">
+        <!--Temperature vs. time plot goes here -->
+      </div> <!-- END OF TEMPERATURE-TIME BLOCK-->
+
+      <div class="vel-time plot-area">
+        <!-- Velocity vs. time plot goes here -->
+      </div> <!-- END OF VELOCITY-TIME BLOCK-->
+
+      <div class="control-area">
+        <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div> <!-- END OF COM PORT DROPDOWN MENU-->
+        <div class="control-btn-block">
+          <button type="button" class="btn btn-danger">START</button>
+          <button type="button" class="btn btn-primary">STOP</button>
+          <button type="button" class="btn btn-primary">SAVE DATA</button>
+        </div> <!-- END OF START/STOP BUTTONS-->
+      </div> <!-- END OF CONTROL BLOCK-->
+    </div> <!-- END OF WRAPPER -->
+</div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+      require('./plots.js')
+    </script>
+  </body>
+</html>
