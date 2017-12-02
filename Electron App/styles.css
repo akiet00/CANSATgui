@@ -2,16 +2,16 @@
 
 /*GENERAL LAYOUT*/
 body{
-  font-family: 'Spectral SC', serif;
-  background-color: #00085e !important;
-  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  font-family: 'Spectral SC', serif !important;
+  /*background: url('/resources/overlay.png'),linear-gradient(to bottom, #1f244f 20%,#323275 60%) !important;
+  background-size: cover;*/
+  background: url("resources/overlay.png"), linear-gradient(45deg, #352e5b 20%, #352e5b 60%, #352e5b);
 }
 .grid{
   padding:0 1.5em;
   padding-top: 0 !important;
   display: grid;
-  grid-template-columns: repeat(3,30%);
+  grid-template-columns: repeat(3,33%);
   grid-template-rows: repeat(2,300px);
   grid-gap: 10px;
   margin: 0 auto;
@@ -37,17 +37,27 @@ body{
 .pressure-time{}
 .temperature-time{}
 .plot-area{
-  padding: 3px;
-  /*border-radius: 3px;*/
-  border: 1px solid #257ec6;
-  border-top: 7px solid #257ec6;
-  background: #fcfeff;
+    padding:0 !important;
+    /*border-radius: 3px;*/
+    border: 1px solid #2c3040;
+    /*border-top: 7px solid #257ec6;*/
+    background: rgba(39, 39, 96,0.6);
+  }
+.plot-label{
+  position: relative;
+  top:0; left:0;
+  margin:0;
+  padding:3px 20px;
+  width: 100%;
+  color: white;
+  background: #2c3040;
 }
 .control-area{
-  /*background: #232323;*/
-  border-radius: 5px;
-  border: 1px solid #b2b2b2;
-  padding: 10px;
+  padding:10px;
+  /*border-radius: 3px;*/
+  border: 1px solid #2c3040;
+  /*border-top: 7px solid #257ec6;*/
+  background: rgba(39, 39, 96,0.6);
 }
 .control-area > .control-btn-block{
   margin: 2em 0;
@@ -59,8 +69,12 @@ body{
   position: relative;
   overflow: hidden;
   border-radius: 0 !important;
+  border: 1px solid rgba(0,0,0,0.4);
   background: #3498db;
   background: #f9fcff;
+  font-weight: 700;
+  color: #f47442;
+  /*box-shadow:0 0 5px 5px #232323;*/
 }
 .btn:before{
   content:"";
@@ -72,6 +86,23 @@ body{
 .blue-btn{
   background: #f9fcff !important;
 }
+.blue-btn:hover{
+  color: white;
+}
 .grad-btn{
   background: linear-gradient(45deg,#e81919,#e51662) !important;
+  color: #2fbfe0; //Easier to see
+}
+/*END OF BUTTONS*/
+
+#status-box{
+  padding:5px;
+  background: #161633;
+  color: #2eba5d; //make it looks like linux terminal
+  font: 'Lucida Console',courier;
+  width: 95%;
+  height: 100px;
+  display: block;
+  margin:10px auto;
+  resize: none;
 }

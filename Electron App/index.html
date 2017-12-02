@@ -5,7 +5,7 @@
     <title>SWERVE TEAM- CANSAT 2017</title>
     <link rel="stylesheet" href="styles.css">
     <!-- PLOTLY library -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plvelot.ly/plotly-latest.min.js"></script>
     <!--D3 library-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!-- BOOTSTRAP library -->
@@ -13,23 +13,28 @@
   </head>
   <body>
     <div class="team-name">
+      <img stc="resources/cansat_logo.png" height="50px" style="display:inline-block">
       <p>SWERV TEAM</p>
     </div>
 
     <div class="grid">
       <div id="alt-time" class="plot-area">
+        <h4 class="plot-label">Altitude-Time</h4>
         <!--Altitude vs. time plot goes here -->
       </div> <!-- END OF ALT-TIME BLOCK-->
 
       <div class="pressure-time plot-area">
+        <h4 class="plot-label">Velocity-Time</h4>
         <!--Pressure vs. time plot goes here -->
       </div> <!-- END OF PRESSSURE-TIME BLOCK-->
 
       <div class="temperature-time plot-area">
+        <h4 class="plot-label">Temperature-Time</h4>
         <!--Temperature vs. time plot goes here -->
       </div> <!-- END OF TEMPERATURE-TIME BLOCK-->
 
       <div class="vel-time plot-area">
+        <h4 class="plot-label">Pressure-Time</h4>
         <!-- Velocity vs. time plot goes here -->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
@@ -41,7 +46,7 @@
       <div class="control-area">
         <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
         <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">COM PORTS
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
@@ -54,6 +59,7 @@
           <span class="btn blue-btn">START &rarr;</span>
           <span class="btn grad-btn">STOP &#9983;</span>
           <span class="btn white-btn">SAVE DATA</span>
+          <textarea id="status-box">Current status ...</textarea>
         </div> <!-- END OF START/STOP BUTTONS-->
       </div> <!-- END OF CONTROL BLOCK-->
     </div> <!-- END OF WRAPPER -->

@@ -16,7 +16,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: true,       //make it frameless
+    frame: false,       //make it frameless
 
     fullscreen: true   //show window in full screen
   })
