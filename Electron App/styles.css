@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Spectral+SC');
 
 /*GENERAL LAYOUT*/
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body{
   font-family: 'Spectral SC', serif !important;
   /*background: url('/resources/overlay.png'),linear-gradient(to bottom, #1f244f 20%,#323275 60%) !important;
@@ -25,7 +29,7 @@ body{
   margin: 0 !important;
   padding: 5px 0;
   color: white;
-  text-align: center;
+  font-family: "tahoma",courier;
 }
 .pad-10{
   padding: 10px;
@@ -50,7 +54,7 @@ body{
   padding:3px 20px;
   width: 100%;
   color: white;
-  background: #2c3040;
+  background: #151b33;
 }
 .control-area{
   padding:10px;
@@ -72,7 +76,7 @@ body{
   border: 1px solid rgba(0,0,0,0.4);
   background: #3498db;
   background: #f9fcff;
-  font-weight: 700;
+  font-weight: bold;
   color: #f47442;
   /*box-shadow:0 0 5px 5px #232323;*/
 }
@@ -97,12 +101,12 @@ body{
 
 #status-box{
   padding:5px;
-  background: #161633;
+  background: #0e0f13;
   color: #2eba5d; //make it looks like linux terminal
   font: 'Lucida Console',courier;
-  width: 95%;
+  font-style: none;
+  width: 100%;
   height: 100px;
   display: block;
-  margin:10px auto;
   resize: none;
 }
