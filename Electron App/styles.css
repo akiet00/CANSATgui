@@ -1,0 +1,48 @@
+/*GENERAL LAYOUT*/
+body{
+  background-color: #00085e !important;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.grid{
+  padding:0 1.5em;
+  padding-top: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(3,30%);
+  grid-template-rows: repeat(2,300px);
+  grid-gap: 10px;
+}
+/*END OF GENERAL LAYOUT*/
+
+/*REUSABLE CLASSES HERE*/
+.team-name{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 !important;
+  padding: 5px 0;
+}
+.pad-10{
+  padding: 10px;
+}
+.margin-10{
+  margin: 10px;
+}
+.alt-time{}
+.pressure-time{}
+.temperature-time{}
+.plot-area{
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #b2b2b2;
+  background: #fcfeff;
+}
+.control-area{
+  /*background: #232323;*/
+  border-radius: 5px;
+  border: 1px solid #b2b2b2;
+  padding: 10px;
+}
+.control-area > .control-btn-block{
+  margin: 2em 0;
+}
+/* END OF REUSABLE CLASSES*/
