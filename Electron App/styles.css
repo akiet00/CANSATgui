@@ -87,13 +87,13 @@ body{
   border-top: 20px solid red;
   width: 0;
 }
-.blue-btn{
+.start-btn{
   background: #f9fcff !important;
 }
-.blue-btn:hover{
+.start-btn:hover{
   color: white;
 }
-.grad-btn{
+.stop-btn{
   background: linear-gradient(45deg,#e81919,#e51662) !important;
   color: #2fbfe0; //Easier to see
 }
