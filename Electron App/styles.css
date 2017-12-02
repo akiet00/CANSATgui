@@ -26,6 +26,7 @@ body{
 .team-name{
   font-size: 30px;
   font-weight: bold;
+  font-style: italic;
   margin: 0 !important;
   padding: 5px 0;
   color: white;

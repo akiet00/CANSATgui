@@ -2,10 +2,10 @@
 var displayTxt = document.getElementByID('status-box');
 var startBtn   = document.getElementsByClassname('start-btn');
 var stopBtn    = document.getElementsByClassname('stop-btn');
-startBtn.addEventListener('click',updateStatus("Starting ..."));
-stopBtn.addEventListener('click',updateStatus("Stopped"));
 
-function updateStatus(newMessage){
-  displayTxt.value= newMessage;
-
+function updateStatus(){
+  displayTxt.value= "Testing";
 }
+
+startBtn.addEventListener('click',updateStatus);
+stopBtn.addEventListener('click',updateStatus);

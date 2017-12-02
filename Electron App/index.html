@@ -19,22 +19,22 @@
 
     <div class="grid">
       <div id="alt-time" class="plot-area">
-        <h4 class="plot-label">Altitude-Time</h4>
+        <h4 class="plot-label">Altitude</h4>
         <!--Altitude vs. time plot goes here -->
       </div> <!-- END OF ALT-TIME BLOCK-->
 
       <div class="pressure-time plot-area">
-        <h4 class="plot-label">Velocity-Time</h4>
+        <h4 class="plot-label">Velocity</h4>
         <!--Pressure vs. time plot goes here -->
       </div> <!-- END OF PRESSSURE-TIME BLOCK-->
 
       <div class="temperature-time plot-area">
-        <h4 class="plot-label">Temperature-Time</h4>
+        <h4 class="plot-label">Temperature</h4>
         <!--Temperature vs. time plot goes here -->
       </div> <!-- END OF TEMPERATURE-TIME BLOCK-->
 
       <div class="vel-time plot-area">
-        <h4 class="plot-label">Pressure-Time</h4>
+        <h4 class="plot-label">Pressure</h4>
         <!-- Velocity vs. time plot goes here -->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
@@ -50,13 +50,13 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
+            <li>COM1</li>
+            <li>COM2</li>
+            <li>COM3</li>
           </ul>
         </div> <!-- END OF COM PORT DROPDOWN MENU-->
         <div class="control-btn-block">
-          <span class="btn start-btn">START &rarr;</span>
+          <span class="btn start-btn" onclick="updateStatus('starting...')">START &rarr;</span>
           <span class="btn stop-btn">STOP &#9983;</span>
           <span class="btn white-btn">SAVE DATA</span>
         </div> <!-- END OF START/STOP BUTTONS-->
