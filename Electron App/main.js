@@ -16,9 +16,9 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: false,                         //make it frameless
+    frame: true,       //make it frameless
 
-    fullscreen: true              //show window in full screen
+    fullscreen: true   //show window in full screen
   })
 
   // and load the index.html of the app.

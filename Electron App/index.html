@@ -2,16 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>SWERVE TEAM- CANSAT 2017</title>
     <link rel="stylesheet" href="styles.css">
     <!-- PLOTLY library -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--D3 library-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <!-- BOOTSTRAP library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
     <div class="team-name">
-      <p>[TEAM Name HERE] TELEMETRY</p>
+      <p>SWERV TEAM</p>
     </div>
 
     <div class="grid">
@@ -31,10 +33,15 @@
         <!-- Velocity vs. time plot goes here -->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
+      <!--JUST A DUMMY BLOCK-->
+      <div class="vel-time plot-area">
+        <!-- Velocity vs. time plot goes here -->
+      </div> <!-- END OF VELOCITY-TIME BLOCK-->
+
       <div class="control-area">
         <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
@@ -44,9 +51,9 @@
           </ul>
         </div> <!-- END OF COM PORT DROPDOWN MENU-->
         <div class="control-btn-block">
-          <button type="button" class="btn btn-danger">START</button>
-          <button type="button" class="btn btn-primary">STOP</button>
-          <button type="button" class="btn btn-primary">SAVE DATA</button>
+          <span class="btn blue-btn">START &rarr;</span>
+          <span class="btn grad-btn">STOP &#9983;</span>
+          <span class="btn white-btn">SAVE DATA</span>
         </div> <!-- END OF START/STOP BUTTONS-->
       </div> <!-- END OF CONTROL BLOCK-->
     </div> <!-- END OF WRAPPER -->

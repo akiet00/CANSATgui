@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+
 /*GENERAL LAYOUT*/
 body{
+  font-family: 'Spectral SC', serif;
   background-color: #00085e !important;
   background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -11,6 +14,7 @@ body{
   grid-template-columns: repeat(3,30%);
   grid-template-rows: repeat(2,300px);
   grid-gap: 10px;
+  margin: 0 auto;
 }
 /*END OF GENERAL LAYOUT*/
 
@@ -20,6 +24,8 @@ body{
   font-weight: bold;
   margin: 0 !important;
   padding: 5px 0;
+  color: white;
+  text-align: center;
 }
 .pad-10{
   padding: 10px;
@@ -32,8 +38,9 @@ body{
 .temperature-time{}
 .plot-area{
   padding: 3px;
-  border-radius: 5px;
-  border: 1px solid #b2b2b2;
+  /*border-radius: 3px;*/
+  border: 1px solid #257ec6;
+  border-top: 7px solid #257ec6;
   background: #fcfeff;
 }
 .control-area{
@@ -46,3 +53,25 @@ body{
   margin: 2em 0;
 }
 /* END OF REUSABLE CLASSES*/
+
+/*BUTTONS*/
+.btn{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 !important;
+  background: #3498db;
+  background: #f9fcff;
+}
+.btn:before{
+  content:"";
+  position: absolute;
+  top:0; right:0;
+  border-top: 20px solid red;
+  width: 0;
+}
+.blue-btn{
+  background: #f9fcff !important;
+}
+.grad-btn{
+  background: linear-gradient(45deg,#e81919,#e51662) !important;
+}
