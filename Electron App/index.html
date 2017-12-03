@@ -25,7 +25,8 @@
   </head>
   <body>
     <div class="team-name">
-      <img src="resources/logo.png" style="height:40px;width:auto;">
+      <div style="grid-column:1/3;color:white;font-size:24px;">University of Minnesota, Twin Cities</div>
+      <img src="resources/logo.png" style="height:40px;width:auto;grid-column:3/3">
     </div>
 
     <div class="grid">
@@ -40,6 +41,17 @@
 
       </div> <!-- END OF PRESSSURE-TIME BLOCK-->
 
+      <!--VOLTAGE BLOCK-->
+      <div class="plot-area voltage-div">
+        <h4 class="plot-label">Current Voltage</h4>
+        <div class="voltage-wrapper">
+            <div class="voltage-label">80%</div>
+            <div class="voltageBlock">
+              <div class="bar"></div>
+            </div><!-- Voltage progress bar-->
+        </div>
+      </div> <!-- END OF VELOCITY-TIME BLOCK-->
+
       <div class="plot-area">
         <h4 class="plot-label">Temperature</h4>
         <div class="graph" id="temperature-time"></div> <!--Temperature vs. time plot-->
@@ -50,11 +62,30 @@
         <div class="graph" id="vel-time"></div><!-- Velocity vs. time plot-->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
-      <!--VOLTAGE BLOCK-->
-      <div class="plot-area">
-        <div id="voltageBlock"></div><!-- Voltage indicator -->
-      </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
+<script>
+window.onload = function(){
+  /*Append progress bar elements into voltageBlock div*/
+  function appendHtml(el, str) {
+    var div = document.createElement('div');
+    div.innerHTML = str;
+    while (div.children.length > 0) {
+      el.appendChild(div.children[0]);
+    }
+  }
+  var progBarDivs = "<div class='voltage-wrapper'><div class='voltage-label'>80%</div><div class='voltageBlock'><div class='bar'></div></div></div>";
+  appendHtml(document.getElementsByClassname('voltage-div'),proBarDivs);
+
+
+  function update(val){
+    var progBar = document.getElementsByClassname('bar');
+    var curWidth = progBar[0].offsetWidth;
+    console.print('Current width is '+ curWidth)
+    progBar[0].style.width = (val/curWidth)*100 + '%';
+  }
+  update(95);
+}
+</script>
       <div class="control-area">
         <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
         <div class="dropdown">
@@ -78,10 +109,10 @@
 </div>
     <script>
       // You can also require other files to run in this process
-      require('./renderer.js')
-      require('./javascripts/plots.js')
-      require('./javascripts/status.js')
-      require('./javascripts/voltage-indicator.js')
+      require('./renderer.js');
+      require('./javascripts/plots.js');
+      //require('./javascripts/status.js');
+      require('./javascripts/voltageIndicator.js');
     </script>
   </body>
 </html>

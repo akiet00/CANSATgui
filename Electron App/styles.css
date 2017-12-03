@@ -7,6 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+p{
+  color: #f7f2ff;
+}
 body{
   font-family: 'Spectral SC', serif !important;
   /*background: url('/resources/overlay.png'),linear-gradient(to bottom, #1f244f 20%,#323275 60%) !important;
@@ -28,8 +31,11 @@ body{
 ------REUSABLE CLASSES HERE------
 ---------------------------------*/
 .team-name{
-  margin-left: 20px;
+  margin: 0 1.5em;
+  grid-gap:10px;
   padding: 5px 0;
+  display:grid;
+  grid-template-columns: repeat(3,33%);
 }
 .pad-10{
   padding: 10px;
@@ -88,8 +94,9 @@ body{
   border-radius: 0 !important;
   border: 1px solid rgba(0,0,0,0.4);
   background: #f9fcff;
-  font-weight: bold;
+  font-weight: 700;
   color: #000;
+  margin-right: 10px;
   /*box-shadow:0 0 5px 5px #232323;*/
 }
 .btn:before{
@@ -106,8 +113,10 @@ body{
   color: white;
 }
 .stop-btn{
-  background: linear-gradient(45deg,#e81919,#e51662) !important;
-  color: #2fbfe0; //Easier to see
+  /*border:2px  solid #e81919 !important;*/
+  box-shadow: inset 5px 0 0 0 #e81919 !important;
+  border: 0 !important;
+  color: #e81919; //Easier to see
 }
 /*END OF BUTTONS*/
 
@@ -121,4 +130,34 @@ body{
   height: 100px;
   display: block;
   resize: none;
+}
+
+/*-------------------
+-------------PROGRESS BAR-----
+-----------------------------*/
+.voltage-wrapper{
+  display: grid;
+  grid-template-columns: repeat(5,20%);
+  grid-auto-rows: minmax(auto,30px);
+}
+.voltage-label{
+  grid-column:1/1;
+  color: #fff;
+  margin:auto;
+}
+.voltageBlock{
+  grid-column: 2/5;
+  width: 100%;
+  height: 20px;
+  margin:10px 10px 10px 0; padding: 0;
+  background: #ddd;
+  overflow: hidden;
+  display: inline-block;
+}
+.voltageBlock > .bar{
+  width:80%; height: 20px;
+  margin: 0;
+  position: relative;
+  left:0;
+  background: linear-gradient(to right,rgb(241,63,5),rgb(122,80,255)); /*#8d44fc;*/
 }
