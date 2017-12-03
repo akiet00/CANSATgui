@@ -7,6 +7,15 @@ KNOWN ISSUES:
 to update the progress bar dynamically.
 */
 
+/*TEST OUR NEW FUNCTION
+-------------------------------------
+Now update the progress bar. While flying the CANSAT, we can use update() in a
+loop to update our progress bar. Or use setInterval to periodically check
+for update from the battery voltage
+*/
+setInterval(function(){update(0,Math.floor(Math.random()*100))}, 3000);
+setInterval(function(){update(1,Math.floor(Math.random()*100))}, 3000);
+setInterval(function(){update(2,Math.floor(Math.random()*100))}, 2000);
 
 /*APPEND NEW CHILD INTO AN EXISTING HTML ELEMENT
 -------------------------------------------
@@ -23,7 +32,8 @@ function appendHtml(el, str) {
 /*Use appendHTML to insert progress bar into our other-div element as desired*/
 var progBarDiv = "<div class='other-wrapper'><div class='other-label'>IDK</div><div class='other-val'></div><div class='other-block'><div class='bar'></div></div></div>";
 appendHtml((document.getElementsByClassName('other-div'))[0],progBarDiv);
-var progBarDiv = "<div class='other-wrapper'><div class='other-label'>IDK</div><div class='other-val'></div><div class='other-block'><div class='bar'></div></div></div>";
+progBarDiv = "<div class='other-wrapper'><div class='other-label'>SERVOS ENGAGE</div><div class='other-val'></div><div class='other-block'><div class='bar'></div></div></div>";
+appendHtml((document.getElementsByClassName('other-div'))[0],progBarDiv);
 
 /*UPDATE THE PRGRESS BAR
 -----------------------------------------
@@ -42,6 +52,7 @@ function update(index,val){
 
   // Update the color of the progress bar according to how
   // many percentage of the initial voltage left left
+  /*
   if(newWidth <= 20){ //critical battery condition
     progBar[index].style.backgroundColor= "#f45c42";
   }
@@ -51,13 +62,5 @@ function update(index,val){
   else{ //greater than 50
     progBar[index].style.backgroundColor= "#29c660";
   }
+  */
 }
-
-/*TEST OUR NEW FUNCTION
--------------------------------------
-Now update the progress bar. While flying the CANSAT, we can use update() in a
-loop to update our progress bar. Or use setInterval to periodically check
-for update from the battery voltage
-*/
-setInterval(function(){update(0,Math.floor(Math.random()*100))}, 3000);
-setInterval(function(){update(1,Math.floor(Math.random()*100))}, 3000);
