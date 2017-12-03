@@ -19,8 +19,6 @@
   visibility: hidden;
 }
 .highcharts-container{
-	display: block;
-	height: 290px !important;
 	margin:0 auto; padding: 0;
 	position: relative;
 }

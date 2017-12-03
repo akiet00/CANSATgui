@@ -1,13 +1,14 @@
+var myvar = ['alt-time','vel-time','pressure-time','temperature-time'];
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
-
-    var alt_chart = Highcharts.chart('alt-time', {
+for(i=0; i< myvar.length; i++){
+    var alt_chart = Highcharts.chart(myvar[i], {
         chart: {
             //zoomType: 'x',
-            borderColor: 'rgba(0,0,0',
+            //borderColor: 'rgba(0,0,0,0)',
             zoomType: 'x'
         },
         title: {
-          text: "Testing Plots",
+          text:null,
           style:{
             color: "#fff"
           }
@@ -62,4 +63,5 @@ $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.jso
             data: data
         }]
     });
+  }
 });

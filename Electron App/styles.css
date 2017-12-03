@@ -39,9 +39,9 @@ body{
 .plot-area{
     padding:0 !important;
     /*border-radius: 3px;*/
-    border: 1px solid #2c3040;
+    /*border: 1px solid #2c3040;*/
     /*border-top: 7px solid #257ec6;*/
-    background: rgba(39, 39, 96,0.6);
+    /*background: rgba(39, 39, 96,0.6);*/
     overflow: hidden;
   }
 .plot-label{
@@ -66,11 +66,13 @@ body{
 /* END OF REUSABLE CLASSES*/
 
 /*GRAPHS*/
-#alt-time-graph{
+.graph{
+  display:block;
   width: 100%;
-  height: 100%;
+  height: 95%;
   margin: 0; padding:0;
 }
+
 /*BUTTONS*/
 .btn{
   position: relative;
