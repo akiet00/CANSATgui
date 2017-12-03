@@ -140,7 +140,7 @@ body{
 }
 
 /*-------------------------------------
--------------PROGRESS BAR--------------
+-------------PROGRESS BARs--------------
 ---------------------------------------*/
 .other-wrapper{
   display: grid;
@@ -152,12 +152,14 @@ body{
   color:#fff;
   margin:auto 0;
   text-align: left;
+  font-family: tahoma;
 }
 .other-val{
   grid-column:2/2;
   color: #fff;
   margin:auto 0;
   text-align: left;
+  font-family: tahoma;
 }
 .other-block{
   grid-column: 3/6;
@@ -174,6 +176,6 @@ body{
   margin: 0;
   position: relative;
   left:0;
-  background:rgb(241,63,5); /*#8d44fc;*/
-  transition: all ease 0.25s; /*smooth transition*/
+  /*background:rgb(241,63,5); /*#8d44fc;*/
+  transition: all ease 1s; /*smooth transition*/
 }

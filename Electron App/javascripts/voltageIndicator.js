@@ -3,7 +3,6 @@ progress bar
 --
 KNOWN ISSUES:
 - color of the progress bar doesn't update correctly
-- test function (at the end) doesn't work properly
 - we need to use update() in a loop
 to update the progress bar dynamically.
 */
@@ -36,21 +35,22 @@ function update(index,val){
   var progBar = document.getElementsByClassName('bar');
   var curWidth = progBar[index].offsetWidth;
   //console.log('Current width is '+ curWidth);
-  // Update the color of the progress bar according to how
-  // many percentage of the initial voltage left left
-  if(curWidth < 20){ //critical battery condition
-    progBar[index].style.backgroundColor= "#f45c42";
-  }
-  else if(20< curWidth && curWidth<50){ //sub-critical battery condition
-    progBar[index].style.backgroundColor= "#48a5f2";
-  }
-  else if(curWidth >=50){
-    progBar[index].style.backgroundColor= "#29c660";
-  }
   var newWidth = Math.floor(val) + '%'
   progBar[index].style.width = newWidth;
   var label = document.getElementsByClassName('other-val');
   label[index].innerHTML = newWidth;
+
+  // Update the color of the progress bar according to how
+  // many percentage of the initial voltage left left
+  if(newWidth <= 20){ //critical battery condition
+    progBar[index].style.backgroundColor= "#f45c42";
+  }
+  else if(20< newWidth && newWidth< 50){ //sub-critical battery condition
+    progBar[index].style.backgroundColor= "#48a5f2";
+  }
+  else{ //greater than 50
+    progBar[index].style.backgroundColor= "#29c660";
+  }
 }
 
 /*TEST OUR NEW FUNCTION
@@ -59,5 +59,5 @@ Now update the progress bar. While flying the CANSAT, we can use update() in a
 loop to update our progress bar. Or use setInterval to periodically check
 for update from the battery voltage
 */
-setInterval(update(0,Math.floor(Math.random()*100)), 1000);
-setInterval(update(1,Math.floor(Math.random()*100)), 1000);
+setInterval(function(){update(0,Math.floor(Math.random()*100))}, 3000);
+setInterval(function(){update(1,Math.floor(Math.random()*100))}, 3000);
