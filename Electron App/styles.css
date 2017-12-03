@@ -47,6 +47,7 @@ body{
     border: 1px solid #2c3040;
     /*border-top: 7px solid #257ec6;*/
     background: rgba(39, 39, 96,0.6);
+    overflow: hidden;
   }
 .plot-label{
   position: relative;
@@ -69,6 +70,12 @@ body{
 }
 /* END OF REUSABLE CLASSES*/
 
+/*GRAPHS*/
+#alt-time-graph{
+  width: 100%;
+  height: 100%;
+  margin: 0; padding:0;
+}
 /*BUTTONS*/
 .btn{
   position: relative;

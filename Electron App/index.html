@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <title>SWERVE TEAM- CANSAT 2017</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chartStyles.css">
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <!-- PLOTLY library -->
     <script src="https://cdn.plvelot.ly/plotly-latest.min.js"></script>
     <!--D3 library-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!-- BOOTSTRAP library-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- HIGHCHARTS JS-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!--HIGHCHARTS exporting
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  -->
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
   </head>
   <body>
     <div class="team-name">
       <img src="resources/cansat_logo.png" height="60px" style="display:inline">
-      <p style="display:inline">SWERV TEAM</p>
+      <img src="resources/logo.png" style="display:inline">
     </div>
 
     <div class="grid">
-      <div id="alt-time" class="plot-area">
+      <div class="plot-area">
         <h4 class="plot-label">Altitude</h4>
-        <!--Altitude vs. time plot goes here -->
+        <div id="alt-time"></div> <!--Altitude plot-->
       </div> <!-- END OF ALT-TIME BLOCK-->
 
       <div class="pressure-time plot-area">
