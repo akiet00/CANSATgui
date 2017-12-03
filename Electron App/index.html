@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="chartStyles.css">
     <!-- Insert this line above script imports  -->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <!-- PLOTLY library -->
-    <script src="https://cdn.plvelot.ly/plotly-latest.min.js"></script>
-    <!--D3 library-->
+    <!--D3 Plotting libarary-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <!-- BOOTSTRAP library-->
+    <!-- BOOTSTRAP library i.e. a CSS library-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <!-- HIGHCHARTS JS-->
+    <!-- HIGHCHARTS JS i.e. Plotting Tool-->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!--HIGHCHARTS exporting
+    <!--HIGHCHARTS exporting i.e. for exporting charts as PNG or svg
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
   -->
     <!-- Insert this line after script imports -->
@@ -42,11 +40,12 @@
       </div> <!-- END OF PRESSSURE-TIME BLOCK-->
 
       <!--VOLTAGE BLOCK-->
-      <div class="plot-area voltage-div">
-        <h4 class="plot-label">Current Voltage</h4>
-        <div class="voltage-wrapper">
-            <div class="voltage-label">80%</div>
-            <div class="voltageBlock">
+      <div class="plot-area other-div">
+        <h4 class="plot-label">Other Parameters</h4>
+        <div class="other-wrapper">
+            <div class="other-label">Voltage</div>
+            <div class="other-val"></div>
+            <div class="other-block">
               <div class="bar"></div>
             </div><!-- Voltage progress bar-->
         </div>
@@ -62,30 +61,6 @@
         <div class="graph" id="vel-time"></div><!-- Velocity vs. time plot-->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
-
-<script>
-window.onload = function(){
-  /*Append progress bar elements into voltageBlock div*/
-  function appendHtml(el, str) {
-    var div = document.createElement('div');
-    div.innerHTML = str;
-    while (div.children.length > 0) {
-      el.appendChild(div.children[0]);
-    }
-  }
-  var progBarDivs = "<div class='voltage-wrapper'><div class='voltage-label'>80%</div><div class='voltageBlock'><div class='bar'></div></div></div>";
-  appendHtml(document.getElementsByClassname('voltage-div'),proBarDivs);
-
-
-  function update(val){
-    var progBar = document.getElementsByClassname('bar');
-    var curWidth = progBar[0].offsetWidth;
-    console.print('Current width is '+ curWidth)
-    progBar[0].style.width = (val/curWidth)*100 + '%';
-  }
-  update(95);
-}
-</script>
       <div class="control-area">
         <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
         <div class="dropdown">
@@ -101,7 +76,7 @@ window.onload = function(){
         <div class="control-btn-block">
           <span class="btn start-btn" onclick="updateStatus('starting...')">START &rarr;</span>
           <span class="btn stop-btn">STOP &#9983;</span>
-          <span class="btn white-btn">SAVE DATA</span>
+          <span class="btn white-btn">SAVE DATA &#9998;</span>
         </div> <!-- END OF START/STOP BUTTONS-->
         <textarea id="status-box">Current Status...</textarea>
       </div> <!-- END OF CONTROL BLOCK-->

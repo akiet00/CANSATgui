@@ -1,3 +1,10 @@
+/*
+GOAL: Responsible for plotting and updating various parameters of our GUI
+--
+KNOWN ISSUES: Currently, we are using a dummy JSON file to plots. In the real scenario
+we should figure out how to plot data using serial data stream.
+*/
+
 var myvar = ['alt-time','vel-time','pressure-time','temperature-time'];
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
 for(i=0; i< myvar.length; i++){

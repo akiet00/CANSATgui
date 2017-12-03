@@ -132,21 +132,28 @@ body{
   resize: none;
 }
 
-/*-------------------
--------------PROGRESS BAR-----
------------------------------*/
-.voltage-wrapper{
+/*-------------------------------------
+-------------PROGRESS BAR--------------
+---------------------------------------*/
+.other-wrapper{
   display: grid;
   grid-template-columns: repeat(5,20%);
   grid-auto-rows: minmax(auto,30px);
 }
-.voltage-label{
-  grid-column:1/1;
-  color: #fff;
-  margin:auto;
+.other-label{
+  grid-column: 1/1;
+  color:#fff;
+  margin:auto 0;
+  text-align: left;
 }
-.voltageBlock{
-  grid-column: 2/5;
+.other-val{
+  grid-column:2/2;
+  color: #fff;
+  margin:auto 0;
+  text-align: left;
+}
+.other-block{
+  grid-column: 3/6;
   width: 100%;
   height: 20px;
   margin:10px 10px 10px 0; padding: 0;
@@ -154,10 +161,12 @@ body{
   overflow: hidden;
   display: inline-block;
 }
-.voltageBlock > .bar{
-  width:80%; height: 20px;
+.other-block > .bar{
+  /*width:80%;*/
+  height: 20px;
   margin: 0;
   position: relative;
   left:0;
-  background: linear-gradient(to right,rgb(241,63,5),rgb(122,80,255)); /*#8d44fc;*/
+  background:rgb(241,63,5); /*#8d44fc;*/
+  transition: all ease 0.25s; /*smooth transition*/
 }
