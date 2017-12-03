@@ -6,10 +6,7 @@ Ground station that displays CANSAT telemetry data. Using web technology like HT
 - Install NodeJS follow this [download link](https://nodejs.org/en/download/)
 - Install Electron
 ```npm install electron --save-dev```
-- In the *electron app* folder, run 
-```
-npm start
-```
+- In the *electron app* folder, run ```npm start```
 - Now the CANSAT app should open in full screen
 
 # Current Design
