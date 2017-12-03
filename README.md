@@ -1,9 +1,9 @@
 # UMN CANSAT GROUND STATION
 **Init Date: Dec 1, 2017**<br>
 Ground station that displays CANSAT telemetry data. Using web technology like HTML, CSS, NodeJS and Electron platform to build the software.
-<br>
-<h2>Run Electron App</h2>
-- Install NodeJS follow this [link](https://nodejs.org/en/download/)
+
+# Run Electron App
+- Install NodeJS follow this [download link](https://nodejs.org/en/download/)
 - Install Electron
 ```npm install electron --save-dev```
 - In the *electron app* folder, run 
@@ -11,14 +11,14 @@ Ground station that displays CANSAT telemetry data. Using web technology like HT
 npm start
 ```
 - Now the CANSAT app should open in full screen
-<br>
-<h2>Current Design</h2>
+
+# Current Design
 <img src="current_design.png" width="100%">
-<h2>Inspring Design Mockup</h2>
+# Inspring Design Mockup
 <img src="https://github.com/akiet00/CANSATgui/blob/master/Inspiring.jpg" width="100%">
 <p>McClaren race car dashboard</p>
 <img src="http://naimagon.com/sap-mclaren-race-dashboard/img/sap-mclaren-2012-1.jpg" width="100%">
 
-<h2>What we need to show</h2>
+# What we need to show
 *Altitude over time
 *Pressure over time
