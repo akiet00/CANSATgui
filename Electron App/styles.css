@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Spectral+SC');
 
-/*GENERAL LAYOUT*/
+/*---------------------------------
+---------GENERAL LAYOUT------------
+-----------------------------------*/
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,7 +24,9 @@ body{
 }
 /*END OF GENERAL LAYOUT*/
 
-/*REUSABLE CLASSES HERE*/
+/*-------------------------------
+------REUSABLE CLASSES HERE------
+---------------------------------*/
 .team-name{
   margin-left: 20px;
   padding: 5px 0;
@@ -58,14 +62,16 @@ body{
   /*border-radius: 3px;*/
   border: 1px solid #2c3040;
   /*border-top: 7px solid #257ec6;*/
-  background: rgba(39, 39, 96,0.6);
+  background: rgba(21, 27, 51,0.6);
 }
 .control-area > .control-btn-block{
   margin: 2em 0;
 }
 /* END OF REUSABLE CLASSES*/
 
-/*GRAPHS*/
+/*-------------------------------------
+-----------------GRAPHS----------------
+---------------------------------------*/
 .graph{
   display:block;
   width: 100%;
@@ -73,7 +79,9 @@ body{
   margin: 0; padding:0;
 }
 
-/*BUTTONS*/
+/*-------------------------------------
+---------------BUTTONS-----------------
+-------------------------------------*/
 .btn{
   position: relative;
   overflow: hidden;

@@ -50,9 +50,9 @@
         <div class="graph" id="vel-time"></div><!-- Velocity vs. time plot-->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
-      <!--JUST A DUMMY BLOCK-->
-      <div class="vel-time plot-area">
-        <!-- Velocity vs. time plot goes here -->
+      <!--VOLTAGE BLOCK-->
+      <div class="plot-area">
+        <div id="voltageBlock"></div><!-- Voltage indicator -->
       </div> <!-- END OF VELOCITY-TIME BLOCK-->
 
       <div class="control-area">
@@ -79,8 +79,9 @@
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
-      require('./plots.js')
-      require('./status.js')
+      require('./javascripts/plots.js')
+      require('./javascripts/status.js')
+      require('./javascripts/voltage-indicator.js')
     </script>
   </body>
 </html>
