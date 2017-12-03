@@ -56,7 +56,8 @@ function update(index,val){
 /*TEST OUR NEW FUNCTION
 -------------------------------------
 Now update the progress bar. While flying the CANSAT, we can use update() in a
-loop to update our progress bar
+loop to update our progress bar. Or use setInterval to periodically check
+for update from the battery voltage
 */
 setInterval(update(0,Math.floor(Math.random()*100)), 1000);
 setInterval(update(1,Math.floor(Math.random()*100)), 1000);

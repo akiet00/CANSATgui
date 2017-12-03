@@ -37,6 +37,13 @@ body{
   display:grid;
   grid-template-columns: repeat(3,33%);
 }
+.team-logo{
+  width: 100%;
+  padding: 0;
+  margin:0 0 -5px 0;
+  grid-column:3/3;
+  background: linear-gradient(45deg,rgb(122,80,255),rgb(241,63,5));
+}
 .pad-10{
   padding: 10px;
 }
