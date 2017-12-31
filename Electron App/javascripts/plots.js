@@ -21,7 +21,10 @@ Highcharts.chart(myvar[i], {
         marginRight: 10,
         events: {
             load: function () {
-
+                /* Instead of generating random variables like below
+                /  we can feed the serial values into here and output
+                /  the plot here
+                */
                 // set up the updating of the chart each second
                 var series = this.series[0];
                 setInterval(function () {
