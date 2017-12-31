@@ -86,10 +86,11 @@
 </div>
     <script>
       // You can also require other files to run in this process
-      require('./renderer.js');
-      require('./javascripts/plots.js');
+      require('./renderer.js');          //Required for Electron
+      require('./javascripts/plots.js'); //Required for Electron
       //require('./javascripts/status.js');
       require('./javascripts/voltageIndicator.js'); //For the Voltage indicator gauges
+      require('./javascripts/csv.js'); //For writing data to CSV file format
       //require('./javascripts/serial.js');  //For Serial Communication
     </script>
   </body>
