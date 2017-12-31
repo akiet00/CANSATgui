@@ -20,7 +20,7 @@ Highcharts.chart(myvar[i], {
         animation: Highcharts.svg, // don't animate in old IE
         marginRight: 10,
         events: {
-            load: function () {
+            load: function (){
                 /* Instead of generating random variables like below
                 /  we can feed the serial values into here and output
                 /  the plot here
