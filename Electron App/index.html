@@ -69,13 +69,14 @@
           <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">COM PORTS
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu">
-            <li>COM1</li>
-            <li>COM2</li>
-            <li>COM3</li>
-          </ul>
+          <select class="dropdown-menu">
+            <option value="COM1">COM1</option>
+            <option value="COM2">COM3</option>
+            <option value="COM3">COM3</option>
+          </select>
         </div> <!-- END OF COM PORT DROPDOWN MENU-->
         <div class="control-btn-block">
+          <span>DISCONNECT SERIAL</span>
           <span class="btn start-btn" onclick="updateStatus('starting...')">START &rarr;</span>
           <span class="btn stop-btn">STOP &#9983;</span>
           <span class="btn white-btn">SAVE DATA &#9998;</span>

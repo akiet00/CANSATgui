@@ -9,14 +9,18 @@
 */
 
 var serialport = require("serialport");
-var SerialPort = serialport.SerialPort;
 
-/* How do we allow options to choose the serial port?
-* We can choose the serial port from our drop-down menu in GUI and
-* set myPortName to what we select. The same can be done for
-* myBaudrate as well.
-* But for now, we can set some random port for development
-*/
+// A list of ALL serial ports
+serialport.list(function (err, ports) {
+  ports.forEach(function(port) {
+    console.log(port.comName);
+  });
+});
+
+// Append the list above into the "COM PORT" drop-down menu
+
+
+// For testing only
 myPortName = "COM4";
 myBaudrate = 9600;
 
@@ -38,7 +42,7 @@ serialPort.on("open", function () {
 });
 
 /*----NEW CSV FILE----
-Description: Create a new CSV file every time the app is open
+* Description: Create a new CSV file every time the app is open
 */
 const fs = require('fs'); // for file system
 const createCsvWriterrequire('csv-writer').createArrayCsvWriter; //for writing the CSV file
@@ -48,7 +52,7 @@ var today = new Date();
 var time_str = (today.getMonth()+1).toString() + '-' + today.getDay() + '-' +
               today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes()
               + '-' + today.getSeconds();
-var path_str = 'teleData-' + time_str + '.csv'; // insert the time of logging into the csv file name
+var path_str = 'CSVexported/teleData-' + time_str + '.csv'; // insert the time of logging into the csv file name
 
 /* create a new CSV file*/
   console.log("Initilizing new blank CSV");
@@ -64,7 +68,7 @@ fs.writeFile(path_str,'', function(err){
 
 
 /*---FUNCTION MANIFEST---
-*   Function to write data to CSV files
+*   Description: Function to write data to CSV files
 *   Input: An array of data type double
 *   Output: A CSV file with data written
 *   For more info: https://www.npmjs.com/package/csv-writer
