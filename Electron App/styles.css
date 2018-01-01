@@ -14,7 +14,8 @@ body{
   font-family: 'Spectral SC', serif !important;
   /*background: url('/resources/overlay.png'),linear-gradient(to bottom, #1f244f 20%,#323275 60%) !important;
   background-size: cover;*/
-  background: url("resources/overlay.png"), linear-gradient(45deg, #352e5b 20%, #352e5b 60%, #352e5b);
+  /*background: url("resources/overlay.png"), linear-gradient(45deg, #352e5b 20%, #352e5b 60%, #352e5b);*/
+  background: url("resources/overlay.png"), #1b1e3e;
 }
 .grid{
   padding:0 1.5em;
@@ -68,14 +69,15 @@ body{
   padding:3px 20px;
   width: 100%;
   color: white;
-  background: #151b33;
+  /*background: #151b33;*/
+  background: linear-gradient(to right,#151b33,#1a1d3d);
 }
 .control-area{
-  padding:10px;
+  padding:20px;
   /*border-radius: 3px;*/
-  border: 1px solid #2c3040;
+  /*border: 1px solid #2c3040;*/
   /*border-top: 7px solid #257ec6;*/
-  background: rgba(21, 27, 51,0.6);
+  background: rgba(15, 16, 21,0.68);
 }
 .control-area > .control-btn-block{
   margin: 2em 0;
@@ -96,6 +98,7 @@ body{
 ---------------BUTTONS-----------------
 -------------------------------------*/
 .btn{
+  /*
   position: relative;
   overflow: hidden;
   border-radius: 0 !important;
@@ -104,7 +107,17 @@ body{
   font-weight: 700;
   color: #000;
   margin-right: 10px;
-  /*box-shadow:0 0 5px 5px #232323;*/
+  box-shadow:0 0 5px 5px #232323;*/
+
+  /*Similar to stackoverflow button*/
+  padding: 10px 20px;
+  background: #07c;
+  color: white;
+  font-size: 13px;
+  width: 80px !important;
+  margin: 20px auto;
+  text-align: center;
+  cursor: pointer;
 }
 .btn:before{
   content:"";
@@ -114,7 +127,7 @@ body{
   width: 0;
 }
 .start-btn{
-  background: #f9fcff !important;
+  /*background: #f9fcff !important;*/
 }
 .start-btn:hover{
   color: white;
@@ -125,18 +138,25 @@ body{
   border: 0 !important;
   color: #e81919; //Easier to see
 }
+
+.dropdown-menu{
+  width: 100px;
+  height: 30px;
+  margin-right: 20px;
+}
 /*END OF BUTTONS*/
 
 #status-box{
   padding:5px;
-  background: #0e0f13;
+  background: none;
   color: #2eba5d; //make it looks like linux terminal
   font: 'Lucida Console',courier;
   font-style: none;
   width: 100%;
-  height: 100px;
+  height: 150px;
   display: block;
   resize: none;
+  border: none;
 }
 
 /*-------------------------------------
@@ -177,6 +197,6 @@ body{
   margin: 0;
   position: relative;
   left:0;
-  background:#f45c42; /*#8d44fc;*/
+  background: #0077cc;; /*#8d44fc;*/
   transition: all ease 1s; /*smooth transition*/
 }
