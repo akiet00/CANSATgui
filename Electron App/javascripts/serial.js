@@ -8,13 +8,12 @@
  *              drop down menu
  */
 $('#status-box').append('\nHello world');
-$('#dropdown-menu').append("<option value='COM1'>COM1</option>");
-
+//$('#dropdown-menu').append("<option value='COM1'>COM1</option>");
 
 var sp = require("serialport");
 
 // A list of ALL serial ports
-$('#status-box').append('\nHEre');
+$('#status-box').append('\nHere');
 sp.list(function(err, ports) {
   if(err){
     return $('#status-box').append('Error listing ports');
@@ -25,25 +24,28 @@ sp.list(function(err, ports) {
     $('#dropdown-menu').append("<option value=" + port.comName + ">" + port.comName + "</option>");
   });
 });
-/*
+
 $('connectBtn').click(function() {
-  var myCom = $('dropdown-menu').value;
+  var myCom = $('dropdown-menu').val;
   $('#status-box').append(myCom.text);
   if (myCom == 'null') {
     $('#status-box').append("Make sure to connect XBee to USB"); //Update the status box
     console.log('make sure to connect Xbee');
   } else {
-    serialConnection(myCom);
+    initSerConnection(myCom);
   }
 });
-*/
+
+/*
 $('#status-box').append('\nOpening port');
 serialConnection('COM4');
+*/
+var write2CSV = require('./testWriteCSV.js'); // module exported from write2CSV.js to write arrays into a CSV file
 
-function serialConnection(myPortName) {
+function initSerConnection(myPortName) {
   var serialPort = new sp(myPortName, {
     baudrate: 9600,
-    parser: serialport.parsers.readline("\n")
+    parser: serialport.parsers.readline("\n") // read until getting to new line
   });
 
   serialPort.on("open", function() {
@@ -53,64 +55,8 @@ function serialConnection(myPortName) {
         $('#status-box').append("serial.js: " + err); //Update the status box
         return console.log("serial.js: " + err); // Write any errors to console for debug
       }
-      console.log(data); //Dump serial data into console for monitoring
-      writeToCSV(data);
+      console.log(data); //for debugging
+      write2CSV(data);
     });
-  });
-}
-
-/*----NEW CSV FILE----
- * Description: Create a new CSV file every time the app is open
- */
-const fs = require('fs'); // for file system
-const createCsvWriter = require('csv-writer').createArrayCsvWriter; //for writing the CSV file
-
-/* path string that includes a timestamp*/
-var today = new Date();
-var time_str = (today.getMonth() + 1).toString() + '-' + today.getDay() + '-' +
-  today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes() +
-  '-' + today.getSeconds();
-var path_str = 'CSVexported/teleData-' + time_str + '.csv'; // insert the time of logging into the csv file name
-
-/* create a new CSV file*/
-console.log("Initilizing new blank CSV");
-$('#status-box').append("New CSV in path: " + path_str);
-fs.writeFile(path_str, '', function(err) {
-  if (err) {
-    $('#status-box').append("serial.js:  " + err);
-    return console.error(err);
-  }
-  $('#status-box').append("CSV file was successfully created");
-  console.log("CSV file was successfully created");
-});
-
-
-/*---FUNCTION MANIFEST---
- *   Description: Function to write data to CSV files
- *   Input: An array of data type double
- *   Output: A CSV file with data written
- *   For more info: https://www.npmjs.com/package/csv-writer
- */
-function writeToCSV(data_ar) {
-  // create an instance of the CSV writer object
-  const csvWriter = createCsvWriter({
-    path: path_str,
-    header: ['TEAM ID', 'MISSION TIME', 'PACKET COUNT', 'ALTITUDE',
-      'PRESSURE', 'TEMPERATURE', 'VOLTAGE', 'GPS TIME', 'GPS LATITUDE',
-      'GPS LONGITUDE', 'GPS ALTITUDE', 'GPS SATS', 'TILT X', 'TILT Y',
-      'TILT Z', 'SOFTWARE STATE'
-    ]
-  })
-
-  // Finally, write to the CSV file
-  console.log("writing to CSV file ...");
-  $('#status-box').append("writing to CSV file ..."); // Update status box
-  csvWriter.writeRecords(data_ar, function(err) {
-    if (err) {
-      $('#status-box').append("serial.js: " + err); // Update status box
-      console.log("Failed to write to file ..." + err); // write any errors to console for debug
-    }
-    $('#status-box').append("CSV file was successfully update..."); // Update status box
-    console.log("CSV file was successfully updated...");
   });
 }
