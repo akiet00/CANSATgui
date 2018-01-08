@@ -6,21 +6,21 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/akiet/CANSATgui",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "CANSAT",
+    "University",
+    "Minnesota",
+    "Twin Cities"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.7.8",
+    "electron": "^1.7.10",
     "progressbar.js": "^1.0.1"
   },
   "dependencies": {
+    "jQuery": "^1.7.4",
     "serialport": "^6.0.4"
   }
 }
