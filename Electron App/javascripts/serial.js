@@ -13,7 +13,7 @@ $('#status-box').append('\nHello world');
 var sp = require("serialport"); //shouldn't this include -js
 //I think we need to make varaible for the port we will get
 var port = new sp("/dev/tty0",{
-  baudrate: 36000
+  baudrate: 9600
 });
 
 //What if we use serialjs.find(serialDevicesPopulated)
@@ -74,3 +74,12 @@ function initSerConnection(myPortName) {
     });
   });
 }
+//Maybe a function to write the data so we can see whats happening
+/*
+function write(data, callback){
+sp.write(data, fnction(){
+sp.drain(callback);
+});
+}
+this should write data and then wait until its done transmitting
+*/
