@@ -16,13 +16,13 @@ module.exports = function (data_ar) {
    * Description: Create a new CSV file every time the app is open
    */
   const fs = require('fs');     // for file system
-  
+
   /* path string that includes a timestamp*/
   var today = new Date();
   var time_str = (today.getMonth() + 1).toString() + '-' + today.getDate() + '-' +
     today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes() +
     '-' + today.getSeconds();
-  var path_str = 'CSVexported/teleData-' + time_str + '.csv'; // insert the time of logging into the csv file name
+  var path_str = 'data/teleData-' + time_str + '.csv'; // insert the time of logging into the csv file name
 
   /* create a new CSV file*/
   console.log("Initilizing new blank CSV");

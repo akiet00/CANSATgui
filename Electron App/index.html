@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWERVE TEAM- CANSAT 2017</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="chartStyles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/chartStyles.css">
     <!-- Insert this line above script imports  -->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <!--D3 Plotting libarary-->
@@ -85,7 +86,9 @@
       require('./renderer.js');                     //Required for Electron to render the app
       require('./javascripts/plots.js');            //Required for plotting
       require('./javascripts/voltageIndicator.js'); //For the Voltage indicator gauges
-      require('./javascripts/serial.js');           //For Serial Communication and data logging
+      //require('./javascripts/serial-com.js');           //For Serial Communication and data logging
+      require('./javascripts/serial-com.js');
+
     </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "name": "electron-quick-start",
+  "name": "cansat",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -13,14 +13,14 @@
     "Minnesota",
     "Twin Cities"
   ],
-  "author": "GitHub",
+  "author": "CANSAT",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.7.10",
+    "electron-rebuild": "^1.6.0",
     "progressbar.js": "^1.0.1"
   },
   "dependencies": {
-    "jQuery": "^1.7.4",
     "serialport": "^6.0.4"
   }
 }
