@@ -1,24 +1,29 @@
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
+// In case we wants an executible file:
+// https://github.com/electron/windows-installer
+
+const {app, BrowserWindow, ipcMain} = require('electron')
 
 const path = require('path')
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow = null
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    frame: false,       //make it frameless
+    width: 1200,
+    height: 780,
+    minWidth: 1200,
+    minHeight: 780,
+    maxWidth: 1920,
+    maxHeight: 1080,
+    backgroundColor: '#1b1e3e',         // fallback background
+    icon: "./resources/cansat_logo.ICO" //icons
+    //frame: false,       //make it frameless
 
-    fullscreen: true   //show window in full screen
+    //fullscreen: true   //show window in full screen
   })
 
   // and load the index.html of the app.
@@ -29,7 +34,8 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
+
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
