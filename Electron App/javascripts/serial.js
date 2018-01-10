@@ -10,8 +10,22 @@
 $('#status-box').append('\nHello world');
 //$('#dropdown-menu').append("<option value='COM1'>COM1</option>");
 
-var sp = require("serialport");
+var sp = require("serialport"); //shouldn't this include -js
+//I think we need to make varaible for the port we will get
+var port = new sp("/dev/tty0",{
+  baudrate: 9600
+});
 
+//What if we use serialjs.find(serialDevicesPopulated)
+//will allows us to find the ports instead of listing
+
+function serialDevicesPopulated(ports){
+console.log(ports);
+if(!ports[0])
+  return;
+
+  serialjs.open(ports[0].port,start,'data')
+}
 // A list of ALL serial ports
 $('#status-box').append('\nHere');
 sp.list(function(err, ports) {
@@ -62,3 +76,12 @@ function initSerialCon(myPortName) {
     });
   });
 }
+//Maybe a function to write the data so we can see whats happening
+/*
+function write(data, callback){
+sp.write(data, fnction(){
+sp.drain(callback);
+});
+}
+this should write data and then wait until its done transmitting
+*/
