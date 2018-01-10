@@ -1,0 +1,24 @@
+/*IMPORT CSS FOR HIGHCHARTS*/
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+/*Set chart backdrop style*/
+.highcharts-roots{
+	color: white !important;
+}
+.highcharts-background {
+	fill: none;
+	/*stroke: #a4edba;
+	stroke-width: 2px;*/
+}
+
+.highcharts-axis-labels{
+	color: white;
+}
+
+.highcharts-credits{
+  visibility: hidden;
+}
+.highcharts-container{
+	margin:0 auto; padding: 0;
+	position: relative;
+}
