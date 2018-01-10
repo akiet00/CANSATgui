@@ -1,4 +1,4 @@
-/*---MANIFEST---
+/*---MANIFEST---/
  * Purpose: Serial.js is used to establish serial communication
  *          with XBee. Then plot the data streaming from serial
  *          onto a graph. Finally, we want to write the data to
@@ -32,7 +32,7 @@ $('connectBtn').click(function() {
     $('#status-box').append("Make sure to connect XBee to USB"); //Update the status box
     console.log('make sure to connect Xbee');
   } else {
-    initSerConnection(myCom);
+    initSerialCon(myCom);
   }
 });
 
@@ -42,15 +42,17 @@ serialConnection('COM4');
 */
 var write2CSV = require('./testWriteCSV.js'); // module exported from write2CSV.js to write arrays into a CSV file
 
-function initSerConnection(myPortName) {
+function initSerialCon(myPortName) {
   var serialPort = new sp(myPortName, {
-    baudrate: 9600,
+    baudRate: 9600,
     parser: serialport.parsers.readline("\n") // read until getting to new line
   });
 
+  const parser = new Readline('\n');
+  serialPort.pipe( parser);
   serialPort.on("open", function() {
     console.log('Openning serial port');
-    serialPort.on('data', function(err, data) {
+    parser.on('data', function(err, data) {
       if (err) {
         $('#status-box').append("serial.js: " + err); //Update the status box
         return console.log("serial.js: " + err); // Write any errors to console for debug
