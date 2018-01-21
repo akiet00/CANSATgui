@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "install": "electron-rebuild"
   },
   "repository": "https://github.com/akiet/CANSATgui",
   "keywords": [
@@ -17,8 +18,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.7.10",
-    "electron-rebuild": "^1.6.0",
-    "progressbar.js": "^1.0.1"
+    "electron-rebuild": "^1.7.3",
+    "progressbar.js": "*"
   },
   "dependencies": {
     "serialport": "^6.0.4"
