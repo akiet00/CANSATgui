@@ -1,7 +1,7 @@
 module.exports = function writeToFile(data){
   const fs = require('fs');
   //const mydir = 'CSVexported/test.csv';
-  const fstream= fs.createWriteStream('data/result.csv',{'flags': 'a'});
+  const fstream= fs.createWriteStream('javascripts/data/result.csv',{'flags': 'a'});
 
   var mystr = data + '\n';
   fstream.once('open', function(fd){
