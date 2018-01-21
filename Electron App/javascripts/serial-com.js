@@ -13,7 +13,7 @@ const sp = require('serialport');
 const Readline = sp.parsers.Readline;
 const parser = new Readline();
 //var comport = process.argv[2]; // pass argument from terminal
-const port = new sp('COM5', {
+const port = new sp('COM4', {
   baudRate: 9600,
   autoOpen: false
 });
