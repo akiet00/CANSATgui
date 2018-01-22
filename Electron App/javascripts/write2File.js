@@ -1,9 +1,9 @@
-module.exports = function writeToFile(data){
-  const fs = require('fs');
-  //const mydir = 'CSVexported/test.csv';
-  const fstream= fs.createWriteStream('javascripts/data/result.csv',{'flags': 'a'});
 
-  var mystr = data + '\n';
+  const fs = require('fs');
+  const fstream= fs.createWriteStream('javascripts/data/result.csv',{'flags': 'a'});
+module.exports.startWriting = function writeToFile(data){
+  //const mydir = 'CSVexported/test.csv';
+  let mystr = data + '\n';
   fstream.once('open', function(fd){
     fstream.write(mystr);
     //fstream.end();
@@ -11,14 +11,27 @@ module.exports = function writeToFile(data){
   });
 }
 
+module.exports.endWriting = function(){
+  fstream.end( (err)=>{
+    if( err)
+      console.log('error closing file')
+  });
+}
+
 
 /*---------------------------------------------------
  * Function to create the directory name
  *--------------------------------------------------*/
+let runOnce = false
 function nameDir(){
-  var today = new Date();
-  var time_str = (today.getMonth() + 1).toString() + '-' + today.getDate() + '-' +
-    today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes();
-  const path_str = 'data/tele-' + time_str + '.csv';
-  return path_str;
+  if( runOnce == false){
+    let today = new Date();
+    let time_str = (today.getMonth() + 1).toString() + '-' + today.getDate() + '-' +
+      today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes();
+    const path_str = 'data/tele-' + time_str + '.csv';
+    runOnce = true
+    return path_str
+  } else{
+    return
+  }
 }

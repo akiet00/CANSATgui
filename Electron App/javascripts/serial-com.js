@@ -61,7 +61,8 @@ sp.list( (err, ports)=>{
   }
 })
 
-// Listen for port selection
+
+// Listen for port selection then start
   let selectedPort = '';
   $('#connectBtn').click(() => {
     selectedPort = $('#port-dropdown').val();
@@ -70,7 +71,8 @@ sp.list( (err, ports)=>{
     init_serial(selectedPort); // Initializing
   });
 
-function init_serial( serPort){ // Wait to start
+// After a port has been selected, establish connection then read in data
+function init_serial( serPort){
   // Set up the selected serial port for connection
   const port = new sp( serPort, {
     baudRate: 9600,
@@ -89,11 +91,15 @@ function init_serial( serPort){ // Wait to start
     $('#disconnectBtn').attr('disabled', false)
   });
 
+  // Do these thing when the serialport emit
+  // error event
   port.on('error', (err)=>{
     updateStatus('Error: ', err.message)
   })
 
+  // Do these thing on closing the serial port
   port.on('close', ()=>{
+    // Update status and disable disconnect button, enable connect button
     updateStatus('Port is closed. File is written.')
     $('#connectBtn').attr('disabled', false)
     $('#disconnectBtn').attr('disabled', true)
@@ -101,22 +107,27 @@ function init_serial( serPort){ // Wait to start
 
   // Listen for disconnect buttons
   $('#disconnectBtn').click( ()=>{
-    port.close();
-  })
-}
+    port.close( (err)=>{
+      if(err) return updateStatus('Error closing port')
+      fileStream.endWriting(); // dispose filestream object
+    });
+  });
+} // End of init_serial function
 
 // Function to write data to an external csv file
 let runOnce = false;
+const fileStream = require('./write2File.js')
 function dataHandler(data){
-  let writeToFile = require('./write2File.js');
   if( runOnce == false){
     updateStatus('Writing to file....')
     runOnce = true
   }
-  writeToFile(string2Floats(data));
+  fileStream.startWriting(string2Floats(data));
   /* Maybe we could pass the data here into
    * our plot function to plot the data
    */
+   // const plot = require('plots.js');
+   // plot( string2Floats(data))
 }
 
 /* function to convert a string with comma seperated numerical values

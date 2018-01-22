@@ -4,7 +4,7 @@ GOAL: Responsible for plotting and updating various parameters of our GUI
 KNOWN ISSUES: Currently, we are using a dummy JSON file to plots. In the real scenario
 we should figure out how to plot data using serial data stream.
 */
-
+// module.exports = function plotData( data){}
 var myvar = ['alt-time','vel-time','pressure-time','temperature-time'];
 
 Highcharts.setOptions({

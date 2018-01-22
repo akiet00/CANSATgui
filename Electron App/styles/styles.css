@@ -3,9 +3,13 @@
 /*---------------------------------
 ---------GENERAL LAYOUT------------
 -----------------------------------*/
+:root{
+  --dominant-blue: #112aa0;
+}
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 p{
@@ -23,7 +27,7 @@ body{
   padding-top: 0 !important;
   display: grid;
   grid-template-columns: repeat(3,33%);
-  grid-template-rows: repeat(2,300px);
+  grid-template-rows: repeat(2, 45vh);
   grid-gap: 10px;
   margin: 0 auto;
 }
@@ -81,7 +85,10 @@ body{
   background: rgba(15, 16, 21,0.68);
 }
 .control-area > .control-btn-block{
-  margin: 2em 0;
+  margin: 5px 0;
+}
+hr{
+  border: 1px solid #999;
 }
 /* END OF REUSABLE CLASSES*/
 
@@ -96,7 +103,7 @@ body{
 }
 
 /*-------------------------------------
----------------BUTTONS-----------------
+-------BUTTONS and SELECT OPTIONS-------
 -------------------------------------*/
 .btn{
   /*
@@ -118,7 +125,8 @@ body{
   text-align: center;
   border: none;
   cursor: pointer;
-
+  margin: 5px 5px 5px 0;
+  display: inline-flex;
 }
 .btn:disabled, button[disabled]{
   background:#999 !important;
@@ -152,6 +160,10 @@ body{
 }
 /*END OF BUTTONS*/
 
+#port-dropdown{
+  min-width: 100px;
+  min-height: 30px;
+}
 #status-box{
   padding:5px;
   background: none;
@@ -163,6 +175,7 @@ body{
   display: block;
   resize: none;
   border: none;
+  font-size: 16px;
 }
 
 /*-------------------------------------
@@ -203,6 +216,6 @@ body{
   margin: 0;
   position: relative;
   left:0;
-  background: #0077cc;; /*#8d44fc;*/
+  background: var(--dominant-blue);
   transition: all ease 1s; /*smooth transition*/
 }
