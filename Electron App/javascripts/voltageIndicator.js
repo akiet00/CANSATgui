@@ -49,18 +49,4 @@ function update(index,val){
   progBar[index].style.width = newWidth;
   var label = document.getElementsByClassName('other-val');
   label[index].innerHTML = newWidth;
-
-  // Update the color of the progress bar according to how
-  // many percentage of the initial voltage left left
-  /*
-  if(newWidth <= 20){ //critical battery condition
-    progBar[index].style.backgroundColor= "#f45c42";
-  }
-  else if(20< newWidth && newWidth< 50){ //sub-critical battery condition
-    progBar[index].style.backgroundColor= "#48a5f2";
-  }
-  else{ //greater than 50
-    progBar[index].style.backgroundColor= "#29c660";
-  }
-  */
 }

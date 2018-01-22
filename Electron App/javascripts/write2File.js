@@ -14,9 +14,8 @@ module.exports = function writeToFile(data){
 
 /*---------------------------------------------------
  * Function to create the directory name
- *
- */
-function createDir(){
+ *--------------------------------------------------*/
+function nameDir(){
   var today = new Date();
   var time_str = (today.getMonth() + 1).toString() + '-' + today.getDate() + '-' +
     today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes();

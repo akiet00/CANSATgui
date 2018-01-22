@@ -7,6 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 p{
   color: #f7f2ff;
 }
@@ -114,17 +115,22 @@ body{
   background: #07c;
   color: white;
   font-size: 13px;
-  width: 80px !important;
-  margin: 20px auto;
   text-align: center;
+  border: none;
   cursor: pointer;
+
 }
-.btn:before{
-  content:"";
-  position: absolute;
-  top:0; right:0;
-  border-top: 20px solid red;
-  width: 0;
+.btn:disabled, button[disabled]{
+  background:#999 !important;
+}
+.btn:hover{
+  background: #112aa0;
+}
+.btn:focus{
+  border: none;
+}
+.btn:active{
+  border: none;
 }
 .start-btn{
   /*background: #f9fcff !important;*/

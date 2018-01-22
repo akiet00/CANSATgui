@@ -1,84 +1,138 @@
 /*CURRENT TEST: testing opening and receive data from serial port.
  *  Currently, there's an arduino that feeds some random number to the
  *  serial port. The feed data has the following format: 12,235,1235,341,\n
+ * The output will be written to an external file called result.CSV
+ * located in the javascript/data/ directory
  */
 
-function updateStatus(msg){
-  var status = document.querySelector('#status-box');
-  status.innerHTML += '\n';
-  status.innerHTML += msg;
+// wire up the clear status buttons
+$('#clearBtn').click( ()=>{
+  clearStatus();
+});
+
+// function to clear status message
+function clearStatus(){
+  $('#status-box').val("")
 }
 
+// Function to update status message
+function updateStatus(msg){
+  $('#status-box').val( (index, val)=>{
+    return val + '\n' + msg
+  })
+}
+
+// Function to list all available serial port
+function updatePortList( serPorts){
+  /* serPorts is an array of objects, each object contains
+   * comName, manufacturer, serialNumber, pnpID, locationId,
+   * productId, vendorId as properties.
+  */
+  if( serPorts.length === 0){
+    updateStatus('Serial port not detected. Try again...')
+    return
+  }
+  let portList = document.querySelector('#port-dropdown');
+  serPorts.forEach( (port)=>{
+    let portOpt = document.createElement('option');
+    portOpt.value = port.comName;
+    portOpt.text  = port.comName;
+    portList.add( portOpt);
+  })
+  updateStatus('Update port name done')
+}
+
+/*--------------Handle serial traffic-----------------
+ *---------------------------------------------------*/
 const sp = require('serialport');
 const Readline = sp.parsers.Readline;
 const parser = new Readline();
-//var comport = process.argv[2]; // pass argument from terminal
-const port = new sp('COM4', {
-  baudRate: 9600,
-  autoOpen: false
-});
-port.pipe(parser);
-port.open();
-port.on("open", (err)=> {
-  if (err) return console.error(err);
-  updateStatus('Opening serial port');
-  console.log('Openning serial port');
-  parser.on('data', (data)=> {
-    dataHandler(data);
+
+// List all serial port available for selection
+sp.list( (err, ports)=>{
+  if(err){
+    updateStatus(err)
+    console.log(err)
+    return
+  }
+  else{
+    updateStatus('Updating port names...')
+    updatePortList( ports)
+  }
+})
+
+// Listen for port selection
+  let selectedPort = '';
+  $('#connectBtn').click(() => {
+    console.log('click was registerded');
+    selectedPort = $('#port-dropdown').val();
+    updateStatus('A port was selected');
+    console.log(selectedPort);
+    init_serial(selectedPort); // Initializing
   });
-});
 
+function init_serial( serPort){ // Wait to start
+  // Set up the selected serial port for connection
+  const port = new sp( serPort, {
+    baudRate: 9600,
+    autoOpen: false
+  });
 
-var writeToFile = require('./write2File.js');
-function dataHandler(data) {
-  console.log(data);
-  updateStatus('Writing to file');
-  writeToFile(string2Floats(data));
-  //Plotting stuff here
+  // Open serial port and start parsing data
+  port.pipe(parser);
+  port.open();
+  port.on("open", ()=> {
+    updateStatus('Opening serial port');
+    parser.on('data', (data)=> {
+      dataHandler(data);
+    });
+    $('#connectBtn').attr('disabled', true)
+    $('#disconnectBtn').attr('disabled', false)
+  });
+
+  port.on('error', (err)=>{
+    updateStatus('Error: ', err.message)
+  })
+
+  port.on('close', ()=>{
+    updateStatus('Port is closed. File is written.')
+    $('#connectBtn').attr('disabled', false)
+    $('#disconnectBtn').attr('disabled', true)
+  })
+
+  // Listen for disconnect buttons
+  $('#disconnectBtn').click( ()=>{
+    port.close();
+  })
 }
 
+// Function to write data to an external csv file
+let runOnce = false;
+function dataHandler(data){
+  let writeToFile = require('./write2File.js');
+  if( runOnce == false){
+    updateStatus('Writing to file....')
+    runOnce = true
+  }
+  writeToFile(string2Floats(data));
+  /* Maybe we could pass the data here into
+   * our plot function to plot the data
+   */
+}
 
+/* function to convert a string with comma seperated numerical values
+ * into an array of floating number
+ */
 function string2Floats(myString) {
-  var i, indi_char = [],
-    numArr = [];
-  for (i = 0; i < myString.length; i++) {
+  let subStr = [],
+      numArr = [];
+  for (let i = 0; i < myString.length; i++) {
     if (myString[i] == ',') {
-      numArr.push(parseFloat(indi_char));
-      indi_char = ''; // emtpy the string
+      numArr.push(parseFloat(subStr));
+      subStr = ''; // emtpy the string
     } else {
-      indi_char += myString[i];
+      subStr += myString[i];
     }
   }
-  return numArr; // Return an array of numbers as floating number
+  return numArr;
 }
-
-
-
-/*--WRITING TO CSV---
-function writeToFile(data){
-  const fs = require('fs');
-  //const mydir = 'CSVexported/test.csv';
-  const fstream= fs.createWriteStream('data/result.csv',{'flags': 'a'});
-
-  var mystr = data + '\n';
-  fstream.once('open', function(fd){
-    fstream.write(mystr);
-    //fstream.end();
-    //console.log('Written successfully!');
-  });
-}
-
-function createDir(){
-  var today = new Date();
-  var time_str = (today.getMonth() + 1).toString() + '-' + today.getDate() + '-' +
-    today.getFullYear() + '-' + today.getHours() + '-' + today.getMinutes();
-  const path_str = 'data/tele-' + time_str + '.csv';
-  return path_str;
-}
-*/
-
-/*----TESTING TIME---*/
-// Set timeout and close the serial port
-setTimeout(function() {
-  port.close();
-}, 10 * 1000); //close after xxx time

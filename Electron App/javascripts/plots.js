@@ -25,10 +25,10 @@ Highcharts.chart(myvar[i], {
                 /  we can feed the serial values into here and output
                 /  the plot here
                 */
-                // set up the updating of the chart each second
+                // update chart in 1sec interval
                 var series = this.series[0];
                 setInterval(function () {
-                    var x = (new Date()).getTime(), // current time
+                    var x = new Date().getTime(), // get current time
                         y = Math.random();
                     series.addPoint([x, y], true, true);
                 }, 1000);
@@ -69,7 +69,7 @@ Highcharts.chart(myvar[i], {
         name: 'Random data',
         data: (function () {
             // generate an array of random data
-            var data = [],
+            let data = [],
                 time = (new Date()).getTime(),
                 i;
 

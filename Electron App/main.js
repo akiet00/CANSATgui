@@ -22,7 +22,6 @@ function createWindow () {
     backgroundColor: '#1b1e3e',         // fallback background
     icon: "./resources/cansat_logo.ICO" //icons
     //frame: false,       //make it frameless
-
     //fullscreen: true   //show window in full screen
   })
 
@@ -33,7 +32,7 @@ function createWindow () {
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Open the DevTools in a seperate window
   mainWindow.webContents.openDevTools({detached: true});
 
 

@@ -68,14 +68,15 @@
       <div class="control-area">
         <!-- COM port connections + Start/stop buttons + other control buttons goes here-->
         <div class="dropdown">
-          <select id="dropdown-menu">
+          <select id="port-dropdown">
             <option value="null">null</option>
           </select>
           <span style="color:white;">select a COM port</span>
         </div> <!-- END OF COM PORT DROPDOWN MENU-->
         <div class="control-btn-block">
-          <span id="connectBtn btn" class="btn">CONNECT</span>
-          <span class="btn" id="disconnectBtn">DISCONNECT</span>
+          <button id="connectBtn" class="btn">CONNECT</button>
+          <button class="btn" id="disconnectBtn" disabled='true'>DISCONNECT</button>
+          <button class='btn' id='clearBtn'>CLEAR STATUS</button>
         </div> <!-- END OF START/STOP BUTTONS-->
         <textarea id="status-box">Current Status...</textarea>
       </div> <!-- END OF CONTROL BLOCK-->
