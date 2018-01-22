@@ -112,7 +112,7 @@ body{
 
   /*Similar to stackoverflow button*/
   padding: 10px 20px;
-  background: #07c;
+  background: #112aa0;
   color: white;
   font-size: 13px;
   text-align: center;
@@ -124,7 +124,7 @@ body{
   background:#999 !important;
 }
 .btn:hover{
-  background: #112aa0;
+  background: #07c;
 }
 .btn:focus{
   border: none;

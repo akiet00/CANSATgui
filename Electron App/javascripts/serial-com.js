@@ -29,7 +29,7 @@ function updatePortList( serPorts){
    * productId, vendorId as properties.
   */
   if( serPorts.length === 0){
-    updateStatus('Serial port not detected. Try again...')
+    updateStatus('Serial port not detected. Try connecting the XBee again.')
     return
   }
   let portList = document.querySelector('#port-dropdown');
@@ -64,10 +64,9 @@ sp.list( (err, ports)=>{
 // Listen for port selection
   let selectedPort = '';
   $('#connectBtn').click(() => {
-    console.log('click was registerded');
     selectedPort = $('#port-dropdown').val();
     updateStatus('A port was selected');
-    console.log(selectedPort);
+    // console.log(selectedPort);
     init_serial(selectedPort); // Initializing
   });
 
