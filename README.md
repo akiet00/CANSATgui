@@ -17,5 +17,10 @@ Ground station that displays CANSAT telemetry data. Using web technology like HT
 <img src="http://naimagon.com/sap-mclaren-race-dashboard/img/sap-mclaren-2012-1.jpg" width="100%">
 
 # What we need to show
-*Altitude over time
-*Pressure over time
+- Altitude
+- Velocity
+- Temperature
+- Pressure
+- Battery Voltage
+- Control buttons
+
